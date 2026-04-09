@@ -215,14 +215,15 @@ export default function Settings() {
                 Orçamento Mensal
               </label>
               <div className="flex gap-2">
-                <span className="flex items-center px-4 py-2 bg-gray-100 dark:bg-slate-700 rounded-lg">
+                <span className="flex items-center px-4 py-2 bg-gray-100 dark:bg-slate-700 rounded-lg font-medium text-gray-700 dark:text-gray-300">
                   R$
                 </span>
                 <input
                   type="number"
                   value={settings.monthlyBudget}
-                  onChange={(e) => updateSetting('monthlyBudget', parseFloat(e.target.value))}
-                  className="flex-1 px-4 py-2 rounded-lg border dark:bg-slate-800"
+                  onChange={(e) => updateSetting('monthlyBudget', parseFloat(e.target.value) || 0)}
+                  placeholder="5000"
+                  className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
             </div>
