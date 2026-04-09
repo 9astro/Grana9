@@ -1,5 +1,13 @@
 import { startOfMonth, subMonths, format } from 'date-fns'
-import { v4 as uuidv4 } from 'crypto'
+
+// Gerar UUID simples (funciona no browser)
+const generateUUID = () => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = (Math.random() * 16) | 0
+    const v = c === 'x' ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
 
 export const getMockTransactions = () => {
   const today = new Date()
@@ -10,7 +18,7 @@ export const getMockTransactions = () => {
     // Mês atual
     {
       id: 1,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Mercado - Compras semanais',
       value: 287.50,
       type: 'expense',
@@ -25,7 +33,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 2,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Salário mensal',
       value: 4500.00,
       type: 'income',
@@ -40,7 +48,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 3,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Aluguel - Apartamento',
       value: 1200.00,
       type: 'expense',
@@ -55,7 +63,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 4,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Internet - Fibra',
       value: 99.90,
       type: 'expense',
@@ -70,7 +78,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 5,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Uber - Deslocamento trabalho',
       value: 45.80,
       type: 'expense',
@@ -85,7 +93,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 6,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Cinema - Sessão 2D',
       value: 34.00,
       type: 'expense',
@@ -100,7 +108,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 7,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Farmácia - Medicamentos',
       value: 123.45,
       type: 'expense',
@@ -115,7 +123,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 8,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Energia elétrica',
       value: 215.00,
       type: 'expense',
@@ -130,7 +138,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 9,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Mercado - Compras extras',
       value: 156.70,
       type: 'expense',
@@ -145,7 +153,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 10,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Freelance - Projeto Web',
       value: 800.00,
       type: 'income',
@@ -160,7 +168,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 11,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Água - Fatura mensal',
       value: 87.50,
       type: 'expense',
@@ -175,7 +183,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 12,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Streaming - Netflix + Spotify',
       value: 45.00,
       type: 'expense',
@@ -192,7 +200,7 @@ export const getMockTransactions = () => {
     // Mês anterior (para comparação)
     {
       id: 13,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Salário mensal',
       value: 4500.00,
       type: 'income',
@@ -207,7 +215,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 14,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Aluguel - Apartamento',
       value: 1200.00,
       type: 'expense',
@@ -222,7 +230,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 15,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Mercado - Compras semanais',
       value: 312.00,
       type: 'expense',
@@ -237,7 +245,7 @@ export const getMockTransactions = () => {
     },
     {
       id: 16,
-      uuid: uuidv4(),
+      uuid: generateUUID(),
       description: 'Energia elétrica',
       value: 198.50,
       type: 'expense',
@@ -283,7 +291,7 @@ export const getMockGoals = () => [
 export const getMockFixedAccounts = () => [
   {
     id: 1,
-    uuid: uuidv4(),
+    uuid: generateUUID(),
     name: 'Aluguel',
     value: 1200.00,
     dueDay: 5,
@@ -294,7 +302,7 @@ export const getMockFixedAccounts = () => [
   },
   {
     id: 2,
-    uuid: uuidv4(),
+    uuid: generateUUID(),
     name: 'Internet',
     value: 99.90,
     dueDay: 8,
@@ -305,7 +313,7 @@ export const getMockFixedAccounts = () => [
   },
   {
     id: 3,
-    uuid: uuidv4(),
+    uuid: generateUUID(),
     name: 'Energia',
     value: 215.00,
     dueDay: 18,
@@ -316,7 +324,7 @@ export const getMockFixedAccounts = () => [
   },
   {
     id: 4,
-    uuid: uuidv4(),
+    uuid: generateUUID(),
     name: 'Água',
     value: 87.50,
     dueDay: 25,
@@ -330,7 +338,7 @@ export const getMockFixedAccounts = () => [
 export const getMockCreditCards = () => [
   {
     id: 1,
-    uuid: uuidv4(),
+    uuid: generateUUID(),
     name: 'Nubank',
     lastDigits: '1234',
     closingDay: 10,
